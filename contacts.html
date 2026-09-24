@@ -7,13 +7,44 @@
     </head>
 
     <body>
-        <h1>CONTACTS</h1>
-        <p>Liste des contacts</p>
-        <ul>
-            <li>léo</li>
-            <li>mathieu</li>
-            <li>sebastien</li>
-        </ul>
+        <h1>Pages des contacts</h1>
+        
+        <a href="conversations.html">
+        <button>Aller dans CONVERSATIONS</button>
+        </a>
 
+        <search>
+            <form action="./search/">
+            <label for="findContact">Recherche un contact</label>
+            <input type="search" id="findContact" name="q" />
+            <button type="submit">Recherche</button>
+            </form>
+        </search>
+
+        <a for="contactChoice">Recherche dans les contacts : </a>
+        <input list="contactList" id="contactChoice" name="contactChoice" />
+        <datalist id="contactList">
+        <option value="Jean"></option>
+        <option value="Octave"></option>
+        <option value="Adil"></option>
+        <option value="Anil"></option>
+        <option value="Akil"></option>
+        </datalist>
+
+        <p>Invitations</p>
+        <!-- Liste de invitations -->
+        <ul>
+            <li>
+                <text>
+                    <strong>Lucas Tremblay</strong>
+                </text>
+            </li>
+            <li>
+                <text>
+                    <strong>Coxtex des pyramide</strong>
+                </text>
+            </li>
+        </ul>
+        
      </body>
 </html>
