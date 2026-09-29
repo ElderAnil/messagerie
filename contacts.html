@@ -3,7 +3,6 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link  rel="stylesheet" href=".\CSS\styleIndex.css"/>
         <title>CONTACTS</title>
     </head>
 
@@ -15,14 +14,16 @@
         </a>
 
         <search>
-            <form action="contcactList">
+            <form action="./search/">
             <label for="findContact">Recherche un contact</label>
             <input type="search" id="findContact" name="q" />
             <button type="submit">Recherche</button>
             </form>
         </search>
 
-       <datalist id="contactList">
+        <a for="contactChoice">Recherche dans les contacts : </a>
+        <input list="contactList" id="contactChoice" name="contactChoice" />
+        <datalist id="contactList">
         <option value="Jean"></option>
         <option value="Octave"></option>
         <option value="Adil"></option>
@@ -30,126 +31,20 @@
         <option value="Akil"></option>
         </datalist>
 
-        <div class="tableContainer">
-  <table>
-    <thead>
-      <tr>
-        <th>Nom</th>
-        <th>Rôle</th>
-        <th>Statut</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Jean Dupont</td>
-        <td>Développeur</td>
-        <td>Actif</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-       <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr> <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-
-
-    </tbody>
-  </table>
-</div>
-
+        <p>Invitations</p>
+        <!-- Liste de invitations -->
+        <ul>
+            <li>
+                <text>
+                    <strong>Lucas Tremblay</strong>
+                </text>
+            </li>
+            <li>
+                <text>
+                    <strong>Coxtex des pyramide</strong>
+                </text>
+            </li>
+        </ul>
         
      </body>
 </html>
