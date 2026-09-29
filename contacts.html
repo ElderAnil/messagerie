@@ -1,11 +1,11 @@
 
 <!doctype html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="utf-8">
-        <link  rel="stylesheet" href=".\CSS\styleIndex.css"/>
+        <link  rel="stylesheet" href="./CSS/styleIndex.css"/>
         <title>CONTACTS</title>
-    </head>
+        </head>
 
     <body>
         <h1>Pages des contacts</h1>
@@ -13,14 +13,10 @@
         <a href="conversations.html">
         <button>Aller dans CONVERSATIONS</button>
         </a>
+        <br>
 
-        <search>
-            <form action="contcactList">
-            <label for="findContact">Recherche un contact</label>
-            <input type="search" id="findContact" name="q" />
-            <button type="submit">Recherche</button>
-            </form>
-        </search>
+        <label for="myContact">Recherche dans les contacts:</label>
+        <input list="contactList" id="myContact" name="myContact" />
 
        <datalist id="contactList">
         <option value="Jean"></option>
@@ -31,125 +27,42 @@
         </datalist>
 
         <div class="tableContainer">
-  <table>
-    <thead>
-      <tr>
-        <th>Nom</th>
-        <th>Rôle</th>
-        <th>Statut</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Jean Dupont</td>
-        <td>Développeur</td>
-        <td>Actif</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-       <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr> <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
-      <tr>
-        <td>Marie Courtois</td>
-        <td>Designer</td>
-        <td>En congé</td>
-      </tr>
+        <table>
+          <thead>
+            <tr>
+              <th>Avatar</th>
+              <th>Bio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="contactCell">
+                <img src="images/defaultprofile.svg" alt="Avatar de Jean-Marie" class="avatar"/>
+                Jean-Marie
+              </td>
+              <td>J'aime la vie !</td>
+            </tr>
+            <tr>
+              <td class="contactCell">
+              <img src="images/defaultprofile.svg" alt="Avatar de Louis" class="avatar"/>
+              Louis</td>
+              <td>Aucun commentaire</td>
+            </tr>
+            <tr>
+              <td class="contactCell">
+                <img src="images/defaultprofile.svg" alt="Avatar de Denis" class="avatar"/>
+              Denis</td>
+              <td>AFK!</td>
+            </tr>
+            <tr>
+              <td class="contactCell">
+              <img src="images/defaultprofile.svg" alt="Avatar de Eric" class="avatar"/>
+              Eric</td>
+              <td>Aucun commentaire</td>
+            </tr>
+          </tbody>
+          </table>
+      </div>
 
-
-    </tbody>
-  </table>
-</div>
-
-        
      </body>
 </html>

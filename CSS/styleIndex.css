@@ -18,7 +18,20 @@ table {
 }
 
 th, td {
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
+  padding: 4px;
+  border-bottom: 2px solid #ddd;
   text-align: left;
+}
+
+.avatar {
+    width: 2em;
+    height: 4em;
+    object-fit:contain;
+    border-radius: 50%;
+}
+
+td.contactCell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
