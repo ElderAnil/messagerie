@@ -1,28 +1,42 @@
 console.log("Hello");
 
+//URL : https://napzbxeiyteogawolmff.supabase.co
+//Public Key : sb_publishable_fr8pvmUGq-q7bCaCRFuT9A_ix7fQan8
 
-/// #for mail .for classes querySelector
+const login = document.querySelector("#loginForm")
+const registration = document.querySelector("#registrationForm")
 
-const email = document.querySelector("#email");
-const password = document.querySelector("#password");
-const container = document.querySelector("#test");
+//Login form
+login.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const mail = login.querySelector("#email");
+    const password = login.querySelector("#password");
 
 
+    let errorMessage = login.querySelector("#errorPassword");
+    if(password.value === "" || mail.value == ""){
+        errorMessage.textContent = "Information manquante.";
+    }else{
+        errorMessage.textContent = "";
+    }
 
-email.addEventListener("input", function() {
-    console.log(email.value);
-    container.textContent = email.value;
 });
 
+//Registration form
+registration.addEventListener("submit", function(event) {
 
-password.addEventListener("input", function(event) {
-    console.log(event.target.value);
+    const name = registration.querySelector("#name");
+    const mail = registration.querySelector("#email");
+    const password = registration.querySelector("#password");
+    const pseudoChess = registration.querySelector("#pseudo");
+    const birthDate = registration.querySelector("#birthDate");
+
+    let errorMessage = registration.querySelector("#errorPassword");
+    if(name.value === "" || mail.value == "" || password.value == ""|| birthDate.value == ""){
+        errorMessage.textContent = "Information manquante.";
+    }else{
+        errorMessage.textContent = "";
+    }
+
 });
-
-
-const utilisateur = [
-    {nom: "Jean-Marie", bio:"Jaime la vie"},
-    {nom: "Louis", bio: "Aucun commentaire"},
-    {nom: "Denis", bio: "AFK!"},
-    {nom: "Eric", bio: "Aucun commentaire"}
-]
