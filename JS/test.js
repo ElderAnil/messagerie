@@ -1,7 +1,7 @@
 console.log("Hello");
 
-//URL : https://napzbxeiyteogawolmff.supabase.co
-//Public Key : sb_publishable_fr8pvmUGq-q7bCaCRFuT9A_ix7fQan8
+const SUPABASE_URL = "https://napzbxeiyteogawolmff.supabase.co";
+const SUPABASE_KEY = "sb_publishable_fr8pvmUGq-q7bCaCRFuT9A_ix7fQan8";
 
 const login = document.querySelector("#loginForm")
 const registration = document.querySelector("#registrationForm")
@@ -32,11 +32,26 @@ registration.addEventListener("submit", function(event) {
     const pseudoChess = registration.querySelector("#pseudo");
     const birthDate = registration.querySelector("#birthDate");
 
-    let errorMessage = registration.querySelector("#errorPassword");
-    if(name.value === "" || mail.value == "" || password.value == ""|| birthDate.value == ""){
-        errorMessage.textContent = "Information manquante.";
-    }else{
-        errorMessage.textContent = "";
-    }
 
 });
+
+const client = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+
+async function testBD(){
+    const {data, error } = await client
+    .from("tabletest")
+    .select("*")
+    .eq("id",976);
+
+    if(error){
+        console.log("Erreur :", error.message);
+    }else{
+        console.log("Donnée reçues :", data);
+    }
+}
+
+testBD();
