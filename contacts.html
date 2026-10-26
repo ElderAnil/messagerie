@@ -4,6 +4,8 @@
     <head>
         <meta charset="utf-8">
         <link  rel="stylesheet" href="./CSS/styleIndex.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="./JS/contacts.js" ></script>
         <title>CONTACTS</title>
         </head>
 
@@ -14,6 +16,8 @@
         <button>Aller dans CONVERSATIONS</button>
         </a>
         <br>
+        
+        <p>Bonjour <span id="userConnected"></span> !</p>
 
         <label for="myContact">Recherche dans les contacts:</label>
         <input list="contactList" id="myContact" name="myContact" />
@@ -63,6 +67,5 @@
           </tbody>
           </table>
       </div>
-
      </body>
 </html>

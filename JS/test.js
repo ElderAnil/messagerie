@@ -1,4 +1,3 @@
-console.log("Hello");
 
 const SUPABASE_URL = "https://prswugemanykitnetkjs.supabase.co";
 const SUPABASE_KEY = "sb_publishable_RWE505BdbbPg5jY3CUG_QQ_q_Ow96Tj";
@@ -12,20 +11,34 @@ const client = window.supabase.createClient(
     SUPABASE_KEY
 );
 
-
 //Login form
-login.addEventListener("submit", function(event) {
+login.addEventListener("submit", async function(event) {
     event.preventDefault();
 
-    const mail = login.querySelector("#emailLogin");
-    const password = login.querySelector("#passwordLogin");
+    const mailLogin = login.querySelector("#emailLogin");
+    const passwordLogin = login.querySelector("#passwordLogin");
 
 
     let errorMessage = login.querySelector("#errorPasswordLogin");
-    if(password.value === "" || mail.value == ""){
+    errorMessage.textContent = "";
+
+    if(passwordLogin.value === "" || mailLogin.value == ""){
         errorMessage.textContent = "Information manquante.";
     }else{
-        errorMessage.textContent = "";
+        
+        const {data, error} = await client.auth.signInWithPassword({
+            email: mailLogin.value,
+            password: passwordLogin.value
+        })
+        //test session
+        //console.log(data.session); 
+
+        if(error !== null){
+            errorMessage.textContent = error.message;
+        }else{
+            window.location.href= "contacts.html";
+        }
+        
     }
 
 });
@@ -40,7 +53,8 @@ login.addEventListener("submit", function(event) {
     const password = registration.querySelector("#password");
     const pseudoChess = registration.querySelector("#pseudo");
     const birthDate = registration.querySelector("#birthDate");
-
+    document.querySelector("#errorPassword").textContent = "";
+    
     const { data, error } = await client.auth.signUp({
     email: mail.value,
     password: password.value
@@ -62,28 +76,8 @@ login.addEventListener("submit", function(event) {
         if(profileError !== null){
             document.querySelector("#errorPassword").textContent = profileError.message;
         }else{
-            console.log("Compte crée !");
+            window.location.href= "contacts.html";
         }
-
     }
-
 });
 
-
-
-
-
-async function testBD(){
-    const {data, error } = await client
-    .from("tabletest")
-    .select("*")
-    .eq("id",976);
-
-    if(error){
-        console.log("Erreur :", error.message);
-    }else{
-        console.log("Donnée reçues :", data);
-    }
-}
-
-testBD();
