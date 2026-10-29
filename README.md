@@ -1,3 +1,4 @@
+    // On ajoutera ici le code pour accepter l'invitation
 # Messagerie
 
 ## 1. Présentation du projet
@@ -34,3 +35,8 @@ Nous avons décidé de créer une messagerie pour un public cible. Un public qui
 ## 6. État d'avancement
 ## 7. Améliorations possibles
 ## 8. Auteurs
+# Messagerie Fil-Rouge
+
+Fonctionalités principales :
+- Utilisation de l'API de *Chess Dot Com* permettant à un utilisateur d'envoyer ses statistiques à un autre utilisateur ou un groupe.
+- Utilisation d'une API Météo où le style d'un message va dépendre du temps qu'il fait pour l'utilisateur concerné.
