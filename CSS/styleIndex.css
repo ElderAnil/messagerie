@@ -1,37 +1,112 @@
 
+* {
+    box-sizing: border-box;
+}
 
-h2,h1{
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #F4F6FA;
+}
+
+/* ==== EN-TÊTE ==== */
+.indexHeader {
     text-align: center;
-    font-family: "Cinzel", serif;
-    font-optical-sizing: auto;
+    padding: 55px 20px 35px;
 }
 
-.table-container {
-  width: 100%;
-  overflow-x: auto; 
+.indexHeader h1 {
+    margin: 0 0 12px;
+    color: #263D68;
+    font-size: 36px;
+    font-weight: 700;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 400px; 
+.indexHeader p {
+    margin: 0;
+    color: #697586;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
-th, td {
-  padding: 4px;
-  border-bottom: 2px solid #ddd;
-  text-align: left;
-}
+/* === Index Main === */
 
-.avatar {
-    width: 2em;
-    height: 4em;
-    object-fit:contain;
-    border-radius: 50%;
-}
-
-td.contactCell {
+.indexMain {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto 50px;
     display: flex;
-    align-items: center;
-    gap: 8px;
+    flex-direction: column;
+    gap: 25px;
+    
 }
+
+/* === Auth Part === */
+.authPart input {
+    width: 100%;
+    padding: 12px 14px;
+}
+
+.authPart {
+    background-color: #FFFFFF;
+    padding: 30px;
+    border-radius: 14px;
+    border: 1px solid #E5E9F0;
+    box-shadow: 0 5px 20px rgba(30, 50, 80, 0.06);
+}
+
+.authPart h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #263D68;
+    font-size: 23px;
+}
+
+/* === Auth part label === */
+
+.authPart label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.authPart input {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 20px;
+    border: 1px solid #D5DCE7;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.authPart input:focus {
+    border-color: #263D68;
+    box-shadow: 0 0 0 3px rgba(38, 61, 104, 0.10);
+}
+
+/* === Button === */
+.authPart button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background-color: #263D68;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.authPart button:hover {
+    background-color: #1B2E50;
+    transform: translateY(-1px);
+}
+
+
+
