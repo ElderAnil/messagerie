@@ -219,15 +219,65 @@ async function showReceivedInvitations() {
 
     invitationList.appendChild(invitation);
 
+
+    //Acceptation de l'ajout contact
     acceptBtn.addEventListener("click", async function() {
+        const { error } = await client
+            .from("amities")
+            .insert([
+            {
+                utilisateur_id: principalUser,
+                ami_id: sender.id
+            },
+            {
+                utilisateur_id: sender.id,
+                ami_id: principalUser
+            }
+            ]);
+
+        if (error) {
+            console.log(error.message);
+            return;
+        }
+
+        //Suppression de l'ajout de contact
+        const { error: deleteError } = await client
+        .from("invitations")
+        .delete()
+        .eq("expediteur_id", sender.id)
+        .eq("destinataire_id", principalUser);
+
+        if (deleteError) {
+        console.log(deleteError.message);
+        return;
+        }
+        //Actualisation liste contacts et liste invitation
+        await showReceivedInvitations();
+        await showFriends();
+
+});
+    //Refus de l'ajout contact
+    refuseBtn.addEventListener("click", async function() {
+        const { error } = await client
+            .from("invitations")
+            .delete()
+            .eq("expediteur_id", sender.id)
+            .eq("destinataire_id", principalUser);
+
+        if (error) {
+            console.log(error.message);
+            return;
+        }
+        await showReceivedInvitations();
     });
     
-    refuseBtn.addEventListener("click", async function() {
-    });
     
 
   });
 }
+
+
+
 
 
 async function init() {

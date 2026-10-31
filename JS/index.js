@@ -53,6 +53,9 @@ login.addEventListener("submit", async function(event) {
     const password = registration.querySelector("#password");
     const pseudoChess = registration.querySelector("#pseudo");
     const birthDate = registration.querySelector("#birthDate");
+    const posX = registration.querySelector("#posX");
+    const posY = registration.querySelector("#posY");
+
     document.querySelector("#errorPassword").textContent = "";
     
     const { data, error } = await client.auth.signUp({
@@ -70,7 +73,9 @@ login.addEventListener("submit", async function(event) {
         nom: name.value,
         email: mail.value,
         date_naissance: birthDate.value,
-        pseudo_chess_com: pseudoChess.value
+        pseudo_chess_com: pseudoChess.value,
+        posiX: posX.value,
+        posiY: posY.value
     });
 
         if(profileError !== null){
