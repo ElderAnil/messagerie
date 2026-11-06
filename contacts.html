@@ -6,54 +6,68 @@
         
         <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
         <title>CONTACTS</title>
-        </head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./CSS/styleIndex.css">
+
+    </head>
 
     <body>
-        <h1>Pages des contacts</h1>
-        
-        <a href="conversations.html">
-        <button>Aller dans CONVERSATIONS</button>
-        </a>
-        <br>
-        
+      <header class="contactHeader">
+        <h1>Contacts</h1>
         <p>Bonjour <span id="userConnected"></span> !</p>
-
+      </header>
         
-        <h2>Ajouter un ami</h2>
-        <label for="searchUser">Email de l'utilisateur : </label>
-        <input type="email" id="searchUser">
+      <main class="contactMain"> 
 
-        <button id="searchUserButton" type="button">
-          Rechercher
-        </button>
+          <section class="contactOptions">
 
-        <button id="sendInvitationButton" type="button">
-          Envoyer une invitation
-        </button>
+            <a href="conversations.html">
+            <button>Aller dans CONVERSATIONS</button>
+            </a>
 
-        <p id="searchMessage"></p>
-        <div id="searchResults"></div>
+            <h2>Ajouter un ami</h2>
+            <label for="searchUser">Email de l'utilisateur : </label>
+            <input type="email" id="searchUser">
 
-        <label for="myContact">Recherche dans les contacts : </label>
-        <input list="contactList" id="myContact" name="myContact" />
+            <button id="searchUserButton" type="button">
+              Rechercher
+            </button>
 
-        <div class="tableContainer">
-        <table>
-          <thead>
-            <tr>
-              <th>Nom</th>
-              <th>Adresse</th>
-            </tr>
-          </thead>
-          <tbody id="friendsTableBody">
-          </tbody>
-          </table>
-      </div>
+            <button id="sendInvitationButton" type="button">
+              Envoyer une invitation
+            </button>
 
-      <h2>Invitations reçues</h2>
-      <div id="receivedInvitations"></div>
-      <p id="invitationMessage"></p>
+            <p id="searchMessage"></p>
+           <div id="searchResults"></div>
 
+          </section>
+
+          <section class="contactList">
+            <h2 > Mes contacts</h2>
+            <label for="myContact">Recherche dans les contacts : </label>
+            <input type="text" list="contactList" id="myContact" name="myContact" />
+
+            <div class="tableContainer">
+            <table>
+              <thead>
+                <tr>
+                  <th>Nom</th>
+                  <th>Adresse</th>
+                </tr>
+              </thead>
+              <tbody id="friendsTableBody">
+              </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="contactInvitation">
+          <h2>Invitations reçues</h2>
+          <div id="receivedInvitations"></div>
+          <p id="invitationMessage"></p>
+          </section>
+
+      </main>
       <script src="./JS/contacts.js" ></script>
      </body>
 </html>
