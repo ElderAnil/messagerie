@@ -10,6 +10,8 @@ body {
     background-color: #F4F6FA;
 }
 
+/* ============ Index.html ============*/
+
 /* ==== EN-TÊTE ==== */
 .indexHeader {
     text-align: center;
@@ -39,7 +41,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    
 }
 
 /* === Auth Part === */
@@ -108,5 +109,68 @@ body {
     transform: translateY(-1px);
 }
 
+/* ============ Contact.html ============*/
+
+.contactHeader {
+    text-align: center;
+    padding: 55px 20px 35px;
+}
+
+.contactHeader h1{
+    margin: 0 0 12px;
+    color: #263D68;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.contactMain{
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.contactOptions,
+.contactList,
+.contactInvitation{
+    background-color: #FFFFFF;
+    padding: 30px;
+    border-radius: 14px;
+    border: 1px solid #E5E9F0;
+    box-shadow: 0 5px 20px rgba(30, 50, 80, 0.06);
+}
 
 
+.contactMain h2{
+    margin-top: 8;
+    margin-bottom: 25px;
+    color: #263D68;
+}
+
+.contactMain input[type="email"],
+.contactMain input[type="text"] {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #E5E9F0;
+    font-size:  15px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.contactMain button{
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background-color: #263D68;
+    color : white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.contactMain button:hover{
+     background-color: #162a53;
+}
