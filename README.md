@@ -8,9 +8,9 @@ Nous avons décidé de créer une messagerie pour un public cible. Un public qui
 - [✓] Connexion
 - [✓] Gestion des contacts
 - [✓] Invitations
-- [✗] Conversations
-- [✗] Messages en temps réel
-- [✗] Horodatage
+- [~] Conversations
+- [✓] Messages en temps réel
+- [✓] Horodatage
 
 ### 2.2 Fonctionnalités bonus
 - [✗] Notifications visuel ou sonor
