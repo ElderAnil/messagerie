@@ -4,19 +4,19 @@
 Nous avons décidé de créer une messagerie pour un public cible. Un public qui correspond à des geeks/nerds. En effet, la messagerie aura un thème personnalisé à ce type d’utilisateurs. 
 ## 2. Fonctionnalités
 ### 2.1 Fonctionnalités principales
-- [✓] Inscription
-- [✓] Connexion
-- [✓] Gestion des contacts
-- [✓] Invitations
-- [~] Conversations
-- [✓] Messages en temps réel
-- [✓] Horodatage
+- [X] Inscription
+- [X] Connexion
+- [X] Gestion des contacts
+- [X] Invitations
+- [X] Conversations
+- [X] Messages en temps réel
+- [X] Horodatage
 
 ### 2.2 Fonctionnalités bonus
-- [✗] Notifications visuel ou sonor
-- [✗] Partage d'images
-- [✗] Statut en ligne, hors ligne
-- [✗] Indicateur « en train d'écrire »
+- [ ] Notifications visuel ou sonor
+- [ ] Partage d'images
+- [ ] Statut en ligne, hors ligne
+- [ ] Indicateur « en train d'écrire »
 
 ### 2.3 Fonctionnalités supplémentaires
 - CHESS.COM -> Lors de l'inscription, un utilisateur peut renseigner son pseudo Chess.com. L'objectif est de pouvoir utiliser les données de Chess.com pour partager automatiquement des statistiques ou des informations sur les échecs dans une conversation, lorsque certains mots-clés comme « chess » ou « échecs » sont détectés.
@@ -78,8 +78,6 @@ Plusieurs améliorations peuvent être apportées au projet :
 - Restreindre l'accès aux données selon l'utilisateur connecté.
 - Améliorer la gestion des erreurs et des cas particuliers.
 - Développer les conversations et l'envoi de messages.
-- Ajouter Supabase Realtime pour recevoir les nouveaux messages sans actualiser la page.
-- Ajouter l'horodatage des messages.
 - Développer les notifications.
 - Intégrer les API Chess.com et météo.
 - Améliorer l'expérience utilisateur et les fonctionnalités sur mobile.
