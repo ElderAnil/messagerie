@@ -14,7 +14,7 @@ const conversationName = document.getElementById("conversationName");
 const conversationMessageInput = document.getElementById("conversationMessageInput");
 const conversationBox = document.getElementById("conversationBox");
 
-let currentConversation, subscriptionMessages, principalUser = null;
+let currentConversation, subscriptionMessages, principalUser, userProfile = null;
 
 function subscribeToConversation(conversation, actionFn) {
     const subscription = client
@@ -114,7 +114,8 @@ conversationInput.addEventListener("submit", async (event) => {
     const {error} = await client
     .from("messages")
     .insert({conversation_id: currentConversation.id,
-        texte: message
+        texte: message,
+        nom: userProfile.nom
     });
 
     if (error) {
@@ -159,13 +160,7 @@ async function getMessages() {
         messageContent.className = "message";
         dateContent.className = "datetime";
 
-        const {data, error} = await client
-        .from('utilisateurs')
-        .select('nom')
-        .eq('id', message.expediteur_id)
-        .single();
-
-        usernameMessage.textContent = data;
+        usernameMessage.textContent = message.nom;
         messageContent.textContent = message.texte;
         dateContent.textContent = message.created_at.slice(0, 19).replace('-', '/').replace('T', ' ');
     });
@@ -188,6 +183,8 @@ async function getUser() {
     .select('*')
     .eq('id', principalUser)
     .single();
+
+    userProfile = profile;
 }
 
 getConversations();
