@@ -31,14 +31,13 @@ login.addEventListener("submit", async function(event) {
             password: passwordLogin.value
         })
         //test session
-        //console.log(data.session); 
+        //console.log(data.session);
 
         if(error !== null){
             errorMessage.textContent = error.message;
         }else{
             window.location.href= "contacts.html";
         }
-        
     }
 
 });

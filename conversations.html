@@ -1,12 +1,58 @@
-
 <!doctype html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="utf-8">
+        
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
         <title>CONVERSATIONS</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./CSS/style.css">
     </head>
 
-    <body>
-        <h1>CONVERSATIONS</h1>
+    <body class="conversationBody">
+        <header class="indexHeader"> <!-- Re-using index's header styling -->
+            <h1>CONVERSATIONS</h1>
+            <p>Retrouvez toute vos conversations ici !</p>
+        </header>
+
+        <main class="conversationMain">
+            <div class="conversationList">
+                <h2>Vos conversations</h2>
+
+                <form class="conversationAdder" id="conversationAdder">
+                    <input id="conversationNameInput" type="text" placeholder="Nom du salon" autocomplete="off">
+                    <button type="submit">Créer</button>
+                </form>
+
+                <ul id="conversations">
+                    <!-- Conversations are added to this list -->
+                </ul>
+            </div>
+
+            <div class="conversationCurrent">
+                <h2 id="conversationName">Nom du salon</h2>
+
+                <form class="conversationInput" id="conversationInput">
+                    <input id="conversationMessageInput" type="text" placeholder="Écrire un message..." autocomplete="off">
+                    <button type="submit">Envoyer</button>
+                </form>
+
+                <div id="conversationBox">
+                    <!-- <div class="messageBox">
+                        <h3 class="username">Username</h3>
+                        <p class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eget orci viverra lacinia. Duis eget mattis dolor.</p>
+                        <p class="datetime">2000-01-01 01:01:01</p>
+                    </div>
+
+                    <div class="messageBox self">
+                        <h3 class="username">Username</h3>
+                        <p class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eget orci viverra lacinia. Duis eget mattis dolor.</p>
+                        <p class="datetime">2000-01-01 01:01:01</p>
+                    </div> -->
+                </div>
+            </div>
+        </main>
+
+        <script src="./JS/conversations.js" ></script>
      </body>
 </html>

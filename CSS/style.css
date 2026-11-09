@@ -174,3 +174,105 @@ body {
 .contactMain button:hover{
      background-color: #162a53;
 }
+
+/* ============ Conversation.html ============*/
+
+.conversationMain h2 {
+    margin: 0 0 12px;
+    color: #263D68;
+    font-weight: 700;
+}
+
+.conversationBody {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.conversationMain {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin: 0 10px 10px 10px;
+}
+
+.conversationList,
+.conversationCurrent {
+    background-color: #FFFFFF;
+    padding: 30px;
+    border-radius: 14px;
+    border: 1px solid #E5E9F0;
+    box-shadow: 0 5px 20px rgba(30, 50, 80, 0.06);
+}
+
+.conversationCurrent {
+    flex-grow: 1;
+    position: relative;
+}
+
+.conversationInput {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.conversationInput input[type="text"]  {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #E5E9F0;
+    font-size:  15px;
+    width: 100%;
+}
+
+.conversationInput button {
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background-color: #263D68;
+    color : white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#conversationBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    margin: 20px;
+}
+
+.messageBox {
+    margin: 0;
+    max-width: 45%;
+    color: #263D68;
+    background-color: #D5DCE7;
+    padding: 7px;
+    overflow: hidden;
+    border-radius: 20px 20px 20px 0;
+}
+
+.messageBox p {
+    margin: 0;
+}
+
+.username {
+    margin: 5px 0;
+}
+
+.datetime {
+    font-style: italic;
+    font-size: 0.9rem;
+    text-align: right;
+    opacity: 0.5;
+}
+
+.self {
+    background-color: #263D68;
+    color: white;
+    align-self: flex-end;
+    border-radius: 20px 20px 0 20px;
+}
