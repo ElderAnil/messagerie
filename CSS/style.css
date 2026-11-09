@@ -206,6 +206,19 @@ body {
     box-shadow: 0 5px 20px rgba(30, 50, 80, 0.06);
 }
 
+.conversations li {
+    list-style: none;
+}
+
+.conversationListItem {
+    border: none;
+    background: none;
+}
+
+.conversationListItem:hover {
+    color: #263D68;
+}
+
 .conversationCurrent {
     flex-grow: 1;
     position: relative;
@@ -218,7 +231,7 @@ body {
     align-items: center;
 }
 
-.conversationInput input[type="text"]  {
+.conversationInput input[type="text"], .conversationAdder input[type="text"]  {
     padding: 12px;
     border-radius: 8px;
     border: 1px solid #E5E9F0;
@@ -226,7 +239,7 @@ body {
     width: 100%;
 }
 
-.conversationInput button {
+.conversationInput button, .conversationAdder button {
     padding: 13px;
     border: none;
     border-radius: 8px;

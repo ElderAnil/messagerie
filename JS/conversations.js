@@ -156,6 +156,10 @@ async function getMessages() {
         messageBox.append(dateContent);
 
         messageBox.classList.add("messageBox");
+        if (message.expediteur_id == profile.id) {
+            messageBox.classList.add("self");
+        }
+
         usernameMessage.className = "username";
         messageContent.className = "message";
         dateContent.className = "datetime";
