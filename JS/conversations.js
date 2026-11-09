@@ -156,7 +156,7 @@ async function getMessages() {
         messageBox.append(dateContent);
 
         messageBox.classList.add("messageBox");
-        if (message.expediteur_id == profile.id) {
+        if (message.expediteur_id == userProfile.id) {
             messageBox.classList.add("self");
         }
 
