@@ -114,6 +114,7 @@ conversationInput.addEventListener("submit", async (event) => {
     const {error} = await client
     .from("messages")
     .insert({conversation_id: currentConversation.id,
+        expediteur_id: userProfile.id,
         texte: message,
         nom: userProfile.nom
     });
