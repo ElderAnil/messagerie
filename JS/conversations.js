@@ -13,8 +13,20 @@ const conversationNameInput = document.getElementById("conversationNameInput");
 const conversationName = document.getElementById("conversationName");
 const conversationMessageInput = document.getElementById("conversationMessageInput");
 const conversationBox = document.getElementById("conversationBox");
+const conversationChessInput = document.getElementById("conversationChessInput");
 
 let currentConversation, subscriptionMessages, principalUser, userProfile = null;
+
+// Method comes from https://stackoverflow.com/a/59916857
+const getJSON = async url => {
+  const response = await fetch(url);
+
+  if(!response.ok)
+    throw new Error(response.statusText);
+
+  const data = response.json();
+  return data;
+}
 
 function subscribeToConversation(conversation, actionFn) {
     const subscription = client
@@ -126,6 +138,40 @@ conversationInput.addEventListener("submit", async (event) => {
 
     // Empty the form to make it nicer
     conversationMessageInput.value = "";
+
+    // No need to retrieve messages, realtime DB does it for us
+})
+
+conversationChessInput.addEventListener("click", async (event) => {
+    // Can't send messages if there are no open conversations
+    if (!currentConversation) {
+        return;
+    }
+    // Can't send chess info if you dont have it linked to your account
+    if (!userProfile.pseudo_chess_com) {
+        return;
+    }
+
+    getJSON("https://api.chess.com/pub/player/" + userProfile.pseudo_chess_com).then(async data => {
+        console.log(data.player_id);
+
+        let message = "chess.com : " + data.name + " (" + data.username + ") - " + data.league + ".";
+
+        const {error} = await client
+        .from("messages")
+        .insert({conversation_id: currentConversation.id,
+            expediteur_id: userProfile.id,
+            texte: message,
+            nom: userProfile.nom
+        });
+
+        if (error) {
+            console.error("Failed to send message", error);
+            return;
+        }
+    }).catch(error => {
+        console.error(error);
+    });
 
     // No need to retrieve messages, realtime DB does it for us
 })

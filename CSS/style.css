@@ -250,6 +250,14 @@ body {
     cursor: pointer;
 }
 
+#conversationChessInput {
+    background-color: #69923e;
+}
+
+#conversationChessInput:hover {
+    background-color: #4e7837;
+}
+
 #conversationBox {
     display: flex;
     flex-direction: column;
