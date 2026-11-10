@@ -15,7 +15,7 @@ const conversationMessageInput = document.getElementById("conversationMessageInp
 const conversationBox = document.getElementById("conversationBox");
 const conversationChessInput = document.getElementById("conversationChessInput");
 
-let currentConversation, subscriptionMessages, principalUser, userProfile = null;
+let currentConversation, subscriptionMessages, principalUser, userProfile, meteoAPI = null;
 
 // Method comes from https://stackoverflow.com/a/59916857
 const getJSON = async url => {
@@ -128,7 +128,8 @@ conversationInput.addEventListener("submit", async (event) => {
     .insert({conversation_id: currentConversation.id,
         expediteur_id: userProfile.id,
         texte: message,
-        nom: userProfile.nom
+        nom: userProfile.nom,
+        weather: meteoAPI
     });
 
     if (error) {
@@ -162,7 +163,8 @@ conversationChessInput.addEventListener("click", async (event) => {
         .insert({conversation_id: currentConversation.id,
             expediteur_id: userProfile.id,
             texte: message,
-            nom: userProfile.nom
+            nom: userProfile.nom,
+            weather: meteoAPI
         });
 
         if (error) {
@@ -175,6 +177,94 @@ conversationChessInput.addEventListener("click", async (event) => {
 
     // No need to retrieve messages, realtime DB does it for us
 })
+
+function weatherCodeToClass(weatherCode, htmlTag) {
+    /* https://open-meteo.com/en/docs#weather_variable_documentation -> Weather code interpetations.
+    To simplify everything, each weather code is filtered into overarching categories, which are Sunny, Cloudy,
+    Rainy, Snowy & Thunderstorm.
+    {
+        "0": "Clear sky", (Sunny)
+        "1": "Mainly clear", (Sunny)
+        "2": "Partly cloudy", (Cloudy)
+        "3": "Overcast", (Cloudy)
+        "45": "Fog", (Cloudy)
+        "48": "Depositing rime fog", (Cloudy)
+        "51": "Light drizzle", (Rainy)
+        "53": "Moderate drizzle", (Rainy)
+        "55": "Dense drizzle", (Rainy)
+        "56": "Light freezing drizzle", (Rainy)
+        "57": "Dense freezing drizzle", (Rainy)
+        "61": "Slight rain", (Rainy)
+        "63": "Moderate rain", (Rainy)
+        "65": "Heavy rain", (Rainy)
+        "66": "Light freezing rain", (Rainy)
+        "67": "Heavy freezing rain", (Rainy)
+        "71": "Slight snowfall", (Snowy)
+        "73": "Moderate snowfall", (Snowy)
+        "75": "Heavy snowfall", (Snowy)
+        "77": "Snow grains", (Snowy)
+        "80": "Slight rain showers", (Rainy)
+        "81": "Moderate rain showers", (Rainy)
+        "82": "Violent rain showers", (Rainy)
+        "85": "Slight snow showers", (Snowy)
+        "86": "Heavy snow showers", (Snowy)
+        "95": "Thunderstorm", (Thunderstorm)
+        "96": "Thunderstorm with slight hail", (Thunderstorm)
+        "97": "Heavy thunderstorm", (Thunderstorm)
+        "99": "Thunderstorm with heavy hail" (Thunderstorm)
+    }
+    */
+
+    // This code sucks btw
+    switch(weatherCode) {
+        // Sunny
+        case 0:
+        case 1:
+            htmlTag.classList.add("sunny");
+            break;
+        // Cloudy
+        case 2:
+        case 3:
+        case 45:
+        case 48:
+            htmlTag.classList.add("cloudy");
+            break;
+        // Rainy
+        case 51:
+        case 53:
+        case 55:
+        case 56:
+        case 57:
+        case 61:
+        case 63:
+        case 65:
+        case 66:
+        case 67:
+        case 80:
+        case 81:
+        case 82:
+            htmlTag.classList.add("rainy");
+            break;
+        // Snowy
+        case 71:
+        case 73:
+        case 75:
+        case 77:
+        case 85:
+        case 86:
+            htmlTag.classList.add("snowy");
+            break;
+        // Thunderstorm
+        case 95:
+        case 96:
+        case 97:
+        case 99:
+            htmlTag.classList.add("thunderstorm");
+            break;
+        default:
+            htmlTag.classList.add("unknown");
+    }
+}
 
 async function getMessages() {
     // Fetch the messages
@@ -193,11 +283,13 @@ async function getMessages() {
     conversationBox.replaceChildren();
     data.reverse().forEach(async message => {
         const messageBox = document.createElement("div");
+        const weatherIcon = document.createElement("div");
         const usernameMessage = document.createElement("h3");
         const messageContent = document.createElement("p");
         const dateContent = document.createElement("p");
 
         conversationBox.append(messageBox);
+        messageBox.append(weatherIcon);
         messageBox.append(usernameMessage);
         messageBox.append(messageContent);
         messageBox.append(dateContent);
@@ -206,6 +298,9 @@ async function getMessages() {
         if (message.expediteur_id == userProfile.id) {
             messageBox.classList.add("self");
         }
+        
+        weatherIcon.classList.add("weatherIcon")
+        weatherCodeToClass(message.weather, weatherIcon);
 
         usernameMessage.className = "username";
         messageContent.className = "message";
@@ -236,7 +331,14 @@ async function getUser() {
     .single();
 
     userProfile = profile;
+
+    if (profile.posiX != null && profile.posiY != null) {
+        getJSON("https://api.open-meteo.com/v1/forecast?latitude="+ profile.posiX +"&longitude="+ profile.posiY +"&current=weather_code").then(data => {
+            //console.log(data.current.weather_code);
+            meteoAPI = data.current.weather_code;
+        });
+    }
 }
 
 getConversations();
-getUser();  
+getUser();

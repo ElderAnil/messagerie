@@ -267,6 +267,7 @@ body {
 }
 
 .messageBox {
+    position: relative;
     margin: 0;
     max-width: 45%;
     color: #263D68;
@@ -274,6 +275,32 @@ body {
     padding: 7px;
     overflow: hidden;
     border-radius: 20px 20px 20px 0;
+}
+
+.weatherIcon {
+    position: absolute;
+    background-image: url("../images/weather/unknown.png");
+    background-size: cover;
+    right: 10px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    z-index: 2;
+}
+.sunny {
+    background-image: url("../images/weather/sun.png");
+}
+.cloudy {
+    background-image: url("../images/weather/cloud.png");
+}
+.rainy {
+    background-image: url("../images/weather/rain.png");
+}
+.snowy {
+    background-image: url("../images/weather/snow.png");
+}
+.thunderstorm {
+    background-image: url("../images/weather/thunder.png");
 }
 
 .messageBox p {

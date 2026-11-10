@@ -19,9 +19,9 @@ Nous avons décidé de créer une messagerie pour un public cible. Un public qui
 - [ ] Indicateur « en train d'écrire »
 
 ### 2.3 Fonctionnalités supplémentaires
-- CHESS.COM -> Lors de l'inscription, un utilisateur peut renseigner son pseudo Chess.com. L'objectif est de pouvoir utiliser les données de Chess.com pour partager automatiquement des statistiques en appuyant sur le bouton spécial.
+- [X] CHESS.COM -> Lors de l'inscription, un utilisateur peut renseigner son pseudo Chess.com. L'objectif est de pouvoir utiliser les données de Chess.com pour partager automatiquement des statistiques en appuyant sur le bouton spécial.
 
-- METEO -> Un compte utilisateur va contenir une position approximative. Cette position pourrait être utilisée pour récupérer les conditions météorologiques locales grâce à une API météo. L'objectif serait de personnaliser l'apparence des messages en fonction de la météo de chaque utilisateur : soleil, pluie ou autres effets visuels.
+- [X] METEO -> Un compte utilisateur va contenir une position approximative. Cette position pourrait être utilisée pour récupérer les conditions météorologiques locales grâce à une API météo. L'objectif serait de personnaliser l'apparence des messages en fonction de la météo de chaque utilisateur : soleil, pluie ou autres effets visuels.
 
 ## 3. Technologies utilisées
 | Technologie | Description |
@@ -78,7 +78,6 @@ Plusieurs améliorations peuvent être apportées au projet :
 - Restreindre l'accès aux données selon l'utilisateur connecté.
 - Améliorer la gestion des erreurs et des cas particuliers.
 - Développer les notifications.
-- Intégrer les API météo.
 - Améliorer l'expérience utilisateur et les fonctionnalités sur mobile.
 
 ## 7. Auteurs
